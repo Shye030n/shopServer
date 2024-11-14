@@ -1,7 +1,10 @@
 package org.sh.shopserver.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -9,6 +12,9 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @Table(name = "product")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +30,6 @@ public class Product {
     private Integer price;
 
     @CreationTimestamp
-    @Column(name = "crate_time", nullable = false)
+    @Column(name = "create_time", nullable = false)
     private LocalDateTime createTime;
 }

@@ -1,15 +1,19 @@
 package org.sh.shopserver.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-import javax.management.relation.Role;
 import java.time.LocalDate;
 
 @Entity
 @Data
 @Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class User {
 
     @Id
