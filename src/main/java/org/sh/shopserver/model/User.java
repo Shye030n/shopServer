@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -30,7 +31,7 @@ public class User {
     private String name;
 
     @Column(name="create_time", nullable = false)
-    private LocalDate createTime;
+    private LocalDateTime createTime;
 
     @Enumerated(EnumType.STRING)
     @Column(name="role", nullable = false)

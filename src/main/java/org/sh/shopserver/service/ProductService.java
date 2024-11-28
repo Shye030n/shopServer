@@ -1,0 +1,30 @@
+package org.sh.shopserver.service;
+
+import org.sh.shopserver.dto.ProductDTO;
+import org.sh.shopserver.model.Product;
+
+import java.util.List;
+public interface ProductService {
+    ProductDTO saveProduct(ProductDTO productDTO);
+    void deleteProduct(Long id);
+    List<ProductDTO> findAllProducts();
+    default Product dtoToEntify(ProductDTO productDTO){
+        Product product=Product.builder()
+                .id(productDTO.getId())
+                .name(productDTO.getName())
+                .price(productDTO.getPrice())
+                .description(productDTO.getDescription())
+                .build();
+        return  product;
+    }
+    default ProductDTO entityToDto(Product product){
+        ProductDTO productDTO=ProductDTO.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .price(product.getPrice())
+                .description(product.getDescription())
+                .createTime(product.getCreateTime())
+                .build();
+        return productDTO;
+    }
+}

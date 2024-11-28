@@ -20,11 +20,11 @@ public class Purchase {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name="user_id", referencedColumnName = "id", updatable = false)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY) // 지연 로딩 전송 방식 선택
-    @JoinColumn(name="product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name="product_id", referencedColumnName = "id",  updatable = false)
         // insertable = false 입력시 이 열은 제외, updatable = false 업데이트시 이 열은 제외
         // => 외래키(Product와 User) 부분을 입력하거나 업데이트할 때 미포함 시킴.
     private Product product;
